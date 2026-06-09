@@ -1,24 +1,41 @@
-2
-veryeasy
-10 Apples
-50 Apples
-Random Berry
-Sack of Geoppebles
+20
+Roppongi Side 1
 end
-easy
-100 Apples
-150 Apples
-Random TM
-Random Gummie
-Random Berry 2x
-100 Apples + Random Berry
-150 Apples + Random Berry
-100 Apples + Random TM
-150 Apples + Random TM
-100 Apples + Random Gummie
-150 Apples + Random Gummie
-50 Apples + Random Berry 2x
-50 Apples + Random Berry and Gummie
-50 Apples + Random Berry and TM
-50 Apples + Random Gummie and TM
+Roppongi Side 2
+end
+Sewers 1
+end
+Sewers 2
+end
+Central Town (Past)
+end
+Radio Tower (Past)
+end
+Factory Area (Past)
+end
+Abyss Area Beach (Past)
+end
+Abyss Area Underwater (Past)
+end
+Gear Forest (Past)
+end
+Tokyo (Past)
+end
+Dark Area (Zombie)
+end
+Central Town (Present)
+end
+Radio Tower (Present)
+end
+Abyss Area Beach (Present)
+end
+Abyss Area Underwater (Present)
+end
+Gear Forest (Present)
+end
+Temple of Light (Present)
+end
+Dark Area (Pluto)
+end
+Outer Dungeons
 end
