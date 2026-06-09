@@ -88,14 +88,9 @@ def randomdigimongenerator(digimon,n):
 """START OF THE MAIN PROGRAM"""
 """Flow control variables"""
 end = 0
-command = '810'
+command = '450'
 finished = 0
 """Stores in lists the data provided by the user"""
-quest = quest()
-dungeon = dungeon()
-client = client()
-adjectives = adjectives()
-enemiesbyplace = enemiesbyplace()
 "Instead of opening the areas.txt twice, opens a single time and already save"
 "information that will be used for both, areas and digimons"
 digimonf = 'areas.txt'
@@ -104,7 +99,6 @@ n = f.readline()
 n = n.rstrip('\n')
 n = n.rstrip('\n')
 n = int(n)
-enemies = enemies(n)
 area = area(f,n)
 f.seek(0)
 digimon = digimon(f,n)
@@ -142,6 +136,10 @@ while end != 1:
     elif command == '2':
     """Generate a random number from 1 to 6"""
     elif command == '3':
+            n = int(input("Type the number of Digivolutions available for your Digimon: "))
+            n = random.randint(1,n)
+            print('Roll result: ' + n)
+            print('\n')
     else:
         print("Unidentified command, please try again.")
         print('\n')
