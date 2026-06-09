@@ -1,0 +1,24 @@
+2
+veryeasy
+10 Apples
+50 Apples
+Random Berry
+Sack of Geoppebles
+end
+easy
+100 Apples
+150 Apples
+Random TM
+Random Gummie
+Random Berry 2x
+100 Apples + Random Berry
+150 Apples + Random Berry
+100 Apples + Random TM
+150 Apples + Random TM
+100 Apples + Random Gummie
+150 Apples + Random Gummie
+50 Apples + Random Berry 2x
+50 Apples + Random Berry and Gummie
+50 Apples + Random Berry and TM
+50 Apples + Random Gummie and TM
+end
