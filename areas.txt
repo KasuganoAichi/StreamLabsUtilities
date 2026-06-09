@@ -1,13 +1,65 @@
 20
 Roppongi Side 1
+Botamon
+Punimon
+Kuramon
+Wanyamon
+Kotemon
+Gotsumon
+Dracomon
+ToyAgumon
+Monodramon
+Impmon
+Gazimon
+Tentomon
+Keramon
+Mushroomon
+Chaosdramon
 end
 Roppongi Side 2
+Kuramon
+Motimon
+Gotsumon
+Keramon
+Gazimon
+Tentomon
+ToyAgumon
+Monodramon
+Mushroomon
+Impmon
+Kurisarimon
 end
 Sewers 1
+Pagumon
+Nyaromon
+Bukamon
+Wormmon
+Tapirmon
+Biyomon
+Muchomon
+Betamon
+Numemon
 end
 Sewers 2
+Tsunomon
+Tokomon
+Tapirmon
+Falcomon
+Chuumon
+Betamon
+Lopmon
+Dracmon
+Geremon
 end
 Central Town (Past)
+Dorimon
+Gazimon
+Keramon
+Otamamon
+Penguimon
+Snimon
+Dokugumon
+Drimogemon
 end
 Radio Tower (Past)
 end
