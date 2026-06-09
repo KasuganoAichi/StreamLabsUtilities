@@ -19,155 +19,15 @@ def listcommands():
     print("3 - Roll a Dice to determine Digivolution")
     print("0 - Close the Program\n")
 
-"""Collect the possible quest names from the quest.txt file"""
+"""Collect the possible difficulty areas from the areas.txt file"""
 
-def quest():
-    questf = "quest.txt" 
-    quest = list()
-    read = 'm'
-    f = open(questf,mode = 'r')
-    read = f.readline()
-    read = read.rstrip('\n')
-    read = read.rstrip('\t')
-    while read != '':
-        quest.append(read)
-        read = f.readline()
-        read = read.rstrip('\n')
-        read = read.rstrip('\t')
-    f.close()
-    return quest
-
-"""Collect the possible dungeon names from the dungeon.txt file"""
-
-def dungeon():
-    dungeonf = 'dungeon.txt'
-    dungeon = list()
-    read = 'd'
-    f = open(dungeonf,mode = 'r')
-    read = f.readline()
-    read = read.rstrip('\n')
-    read = read.rstrip('\t')
-    while read != '':
-        dungeon.append(read)
-        read = f.readline()
-        read = read.rstrip('\n')
-        read = read.rstrip('\t')
-    f.close()
-    return dungeon
-
-"""Collect the possible clients names from the clients.txt file"""
-
-def client():
-    clientf = 'client.txt'
-    client = list()
-    read = 'c'
-    f = open(clientf,mode = 'r')
-    read = f.readline()
-    read = read.rstrip('\n')
-    read = read.rstrip('\t')
-    while read != '':
-        client.append(read)
-        read = f.readline()
-        read = read.rstrip('\n')
-        read = read.rstrip('\t')
-    f.close()
-    return client
-
-"""Collect the possible enemies names (based on difficult level) from the enemies.txt file"""
-
-def enemies(n):
-    enemiesf = 'enemies.txt'
-    enemies = list()
-    auxlist = list()
-    read = 'e'
-    f = open(enemiesf,mode = 'r')
-    "the first two lines are irrevelant, they contain the number of difficulties and the first difficult name"
-    read = f.readline()
-    read = f.readline()
-    read = f.readline()
-    read = read.rstrip('\n')
-    read = read.rstrip('\t')
-    while n != 0:
-        while read != 'end':
-            auxlist.append(read)
-            read = f.readline()
-            read = read.rstrip('\n')
-            read = read.rstrip('\t')
-        enemies.append(auxlist)
-        n = n - 1
-        if n != 0:
-            "Ignores next line because it will be a difficult name"
-            read = f.readline()
-            read = f.readline()
-            read = read.rstrip('\n')
-            read = read.rstrip('\t')
-            auxlist = list()
-    f.close()
-    return enemies
-
-"""Collect the possible enemies names (by dungeon) from the enemiesbyplace.txt file"""
-   
-def enemiesbyplace():
-   enemiesdungeonf = 'enemiesbydungeon.txt'
-   enemiesdungeon = list()
-   auxlist = list()
-   read = 'e'
-   f = open(enemiesdungeonf,mode = 'r')
-   n = f.readline()
-   n = n.rstrip('\n')
-   n = n.rstrip('\t')
-   n = int(n)
-   "Collects number of dungeons then ignores next line, since it will be a dugeon name"
-   read = f.readline()
-   read = f.readline()
-   read = read.rstrip('\n')
-   read = read.rstrip('\t')
-   while n != 0:
-      while read != 'end':
-         auxlist.append(read)
-         read = f.readline()
-         read = read.rstrip('\n')
-         read = read.rstrip('\t')
-      enemiesdungeon.append(auxlist)
-      n = n - 1
-      if n != 0:
-         "Ignores next line because it will be a dungeon name"
-         read = f.readline()
-         read = f.readline()
-         read = read.rstrip('\n')
-         read = read.rstrip('\t')
-         auxlist = list()
-   f.close()
-   return enemiesdungeon                   
-   
-"""Collect the possible mental state of an enemy from the adjectives.txt (anngry, happy, scared, etc)"""
-
-def adjectives():
-   adjectivesf = 'adjectives.txt'
-   adjectives = list()
-   read = 'c'
-   f = open(adjectivesf,mode = 'r')
-   read = f.readline()
-   read = read.rstrip('\n')
-   read = read.rstrip('\t')
-   while read != '':
-      adjectives.append(read)
-      read = f.readline()
-      read = read.rstrip('\n')
-      read = read.rstrip('\t')
-   f.close()
-   return adjectives
-
-   
-"""Collect the possible difficulty ranks from the reward.txt file"""
-
-def rank(f,n):
-    rank = list()
+def area(f,n):
+    area = list()
     read = 'r'
     read = f.readline()
     read = read.rstrip('\n')
     read = read.rstrip('\t')
-    rank.append(read)
+    area.append(read)
     n = n - 1
     while n != 0:
         while read != 'end':
@@ -177,14 +37,14 @@ def rank(f,n):
         read = f.readline()
         read = read.rstrip('\n')
         read = read.rstrip('\t')
-        rank.append(read)
+        area.append(read)
         n = n - 1
-    return rank  
+    return area  
    
-"""Collect the possible difficulty rewards from the reward.txt file"""   
+"""Collect the possible difficulty digimons from the areas.txt file"""   
 
-def reward(f,n):
-    reward = list()
+def digimon(f,n):
+    digimon = list()
     auxlist = list()
     read = 'r'
     "the first two lines are irrevelant, they contain the number of difficulties and the first difficult name"
@@ -199,7 +59,7 @@ def reward(f,n):
             read = f.readline()
             read = read.rstrip('\n')
             read = read.rstrip('\t')
-        reward.append(auxlist)
+        digimon.append(auxlist)
         n = n - 1
         if n != 0:
             "Ignores next line because it will be a difficult name"
@@ -208,7 +68,7 @@ def reward(f,n):
             read = read.rstrip('\n')
             read = read.rstrip('\t')
             auxlist = list()
-    return reward
+    return digimon
 
 """Choose random quest title only"""
 
@@ -253,20 +113,20 @@ def randomenemyencountergenerator(enemies,n):
     y = random.randint(0,x)
     return y
 
-"""Choose a random difficult rank for the quest"""
+"""Choose a random difficult area for the quest"""
 
-def randomrankgenerator(rank):
-    x = len(rank) - 1
+def randomareagenerator(area):
+    x = len(area) - 1
     y = random.randint(0,x)
-    print('Rank: ' + rank[y])
+    print('area: ' + area[y])
     return y
 
-"""Choose a random reward for the quest"""
+"""Choose a random digimon for the quest"""
 
-def randomrewardgenerator(reward,n):
-    x = len(reward[n]) - 1
+def randomdigimongenerator(digimon,n):
+    x = len(digimon[n]) - 1
     y = random.randint(0,x)
-    print('Reward: ' + reward[n][y])
+    print('digimon: ' + digimon[n][y])
 
 """START OF THE MAIN PROGRAM"""
 """Flow control variables"""
@@ -279,18 +139,18 @@ dungeon = dungeon()
 client = client()
 adjectives = adjectives()
 enemiesbyplace = enemiesbyplace()
-"Instead of opening the reward.txt twice, opens a single time and already save"
-"information that will be used for both, ranks and rewards"
-rewardf = 'rewards.txt'
-f = open(rewardf,mode = 'r')
+"Instead of opening the areas.txt twice, opens a single time and already save"
+"information that will be used for both, areas and digimons"
+digimonf = 'areas.txt'
+f = open(digimonf,mode = 'r')
 n = f.readline()
 n = n.rstrip('\n')
 n = n.rstrip('\n')
 n = int(n)
 enemies = enemies(n)
-rank = rank(f,n)
+area = area(f,n)
 f.seek(0)
-reward = reward(f,n)
+digimon = digimon(f,n)
 f.close()
 """Extra variables"""
 n = 0
@@ -311,16 +171,16 @@ while end != 1:
             randomtitlegenerator(quest)
             d = randomdungeongenerator(dungeon)
             randomclientgenerator(client)
-            n = randomrankgenerator(rank)
+            n = randomareagenerator(area)
             randomenemygenerator(enemies,n)
-            randomrewardgenerator(reward,n)
+            randomdigimongenerator(digimon,n)
         elif command == 2:
             randomtitlegenerator(quest)
             d = randomdungeongenerator(dungeon)
             randomclientgenerator(client)
-            n = randomrankgenerator(rank)
+            n = randomareagenerator(area)
             randomenemygenerator(enemies,d)
-            randomrewardgenerator(reward,n)
+            randomdigimongenerator(digimon,n)
     elif command == '2':
         while finished != 1:
             "Index starts at 0, thus x-1 will provide the correct placement of the item on the list"
@@ -351,14 +211,14 @@ while end != 1:
         randomclientgenerator(client)
         print('\n')
     elif command == '6':
-        n = randomrankgenerator(rank)
+        n = randomareagenerator(area)
         print('\n')
     elif command == '7':
         "Index starts at 0, thus x-1 will provide the correct placement of the item on the list"
         while finished != 1:
-            for item in rank:
+            for item in area:
                 strx = str(x)
-                print(strx + ' - ' + rank[x-1])
+                print(strx + ' - ' + area[x-1])
                 x = x + 1
             n = int(input("Type the number of the difficult of the quest: "))
             if 0 < n < x:
@@ -391,15 +251,15 @@ while end != 1:
         finished = 0
     elif command == '9':
         while finished != 1:
-            for item in rank:
+            for item in area:
                 strx = str(x)
-                print(strx + ' - ' + rank[x-1])
+                print(strx + ' - ' + area[x-1])
                 x = x + 1
             n = int(input("Type the number of the difficult of the quest: "))
             if 0 < n < x:
                 n = n - 1
                 print('\n')
-                randomrewardgenerator(reward,n)
+                randomdigimongenerator(digimon,n)
                 print('\n')
                 finished = 1
             else:
