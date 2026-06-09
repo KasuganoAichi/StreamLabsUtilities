@@ -14,15 +14,9 @@ def listcommands():
     print("Hello and welcome to the random quest generator.")
     print("Below you can see a list with the available commands,")
     print("just type the number of the desired command and press Enter to run it")
-    print("1 - Set up a complete quest (quest title, dungeon, client, rank, reward and final enemy)")
-    print("2 - Set up a random encounter")
-    print("3 - Set up a quest name")
-    print("4 - Set up a dungeon")
-    print("5 - Set up a client")
-    print("6 - Set up a difficult rank")
-    print("7 - Set up a random enemy based on difficult")
-    print("8 - Set up a random enemy based on location")
-    print("9 - Set up a reward")
+    print("1 - Pick a Random Digimon from specified Area")
+    print("2 - Pick one Random Digimon from each Area")
+    print("3 - Roll a Dice to determine Digivolution")
     print("0 - Close the Program\n")
 
 """Collect the possible quest names from the quest.txt file"""
