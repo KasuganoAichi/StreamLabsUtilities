@@ -120,93 +120,8 @@ while end != 1:
     command = input()
     if command == '0':
         end = 1
+    """Pick one random digimon from one choosen area"""
     elif command == '1':
-        print("Type 1 to pick the final enemy based on the quest difficult")
-        print("Type 2 to pick the final enemy based on the dungeon\n")
-        command = input()
-        if command == 1:
-            randomtitlegenerator(quest)
-            d = randomdungeongenerator(dungeon)
-            randomclientgenerator(client)
-            n = randomareagenerator(area)
-            randomenemygenerator(enemies,n)
-            randomdigimongenerator(digimon,n)
-        elif command == 2:
-            randomtitlegenerator(quest)
-            d = randomdungeongenerator(dungeon)
-            randomclientgenerator(client)
-            n = randomareagenerator(area)
-            randomenemygenerator(enemies,d)
-            randomdigimongenerator(digimon,n)
-    elif command == '2':
-        while finished != 1:
-            "Index starts at 0, thus x-1 will provide the correct placement of the item on the list"
-            for item in dungeon:
-                strx = str(x)
-                print(strx + ' - ' + dungeon[x-1])
-                x = x + 1
-            n = int(input("Type the number of the dungeon where the event takes place: "))
-            if 0 < n < x:
-                n = n - 1
-                y = randomenemyencountergenerator(enemiesbyplace,n)
-                x = randomadjectivegenerator(adjectives)
-                print("While exploring through the " + dungeon[n]
-                      + " the group encountered a(n) " +
-                      adjectives[x] + " " + enemiesbyplace[n][y])
-                finished = 1
-            else:
-                print("Input number out of index range, please try again")
-            x = 1
-        finished = 0
-    elif command == '3':
-        randomtitlegenerator(quest)
-        print('\n')
-    elif command == '4':
-        randomdungeongenerator(dungeon)
-        print('\n')
-    elif command == '5':
-        randomclientgenerator(client)
-        print('\n')
-    elif command == '6':
-        n = randomareagenerator(area)
-        print('\n')
-    elif command == '7':
-        "Index starts at 0, thus x-1 will provide the correct placement of the item on the list"
-        while finished != 1:
-            for item in area:
-                strx = str(x)
-                print(strx + ' - ' + area[x-1])
-                x = x + 1
-            n = int(input("Type the number of the difficult of the quest: "))
-            if 0 < n < x:
-                n = n - 1
-                print('\n')
-                randomenemygenerator(enemies,n)
-                print('\n')
-                finished = 1
-            else:
-                print("Input number out of index range, please try again")
-            x = 1
-        finished = 0
-    elif command == '8':
-        "Index starts at 0, thus x-1 will provide the correct placement of the item on the list"
-        while finished != 1:
-            for item in dungeon:
-                strx = str(x)
-                print(strx + ' - ' + dungeon[x-1])
-                x = x + 1
-            n = int(input("Type the number of the dungeon where the enemy lives: "))
-            if 0 < n < x:
-                n = n - 1
-                print('\n')
-                randomenemygenerator(enemiesbyplace,n)
-                print('\n')
-                finished = 1
-            else:
-                print("Input number out of index range, please try again")
-            x = 1
-        finished = 0
-    elif command == '9':
         while finished != 1:
             for item in area:
                 strx = str(x)
@@ -223,6 +138,10 @@ while end != 1:
                 print("Input number out of index range, please try again")
             x = 1
         finished = 0
+    """Pick one random digimon from each area (no duplicates will show up)"""
+    elif command == '2':
+    """Generate a random number from 1 to 6"""
+    elif command == '3':
     else:
         print("Unidentified command, please try again.")
         print('\n')
