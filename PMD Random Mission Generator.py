@@ -70,49 +70,6 @@ def digimon(f,n):
             auxlist = list()
     return digimon
 
-"""Choose random quest title only"""
-
-def randomtitlegenerator(quest):
-    x = len(quest) - 1
-    y = random.randint(0,x)
-    print('Quest: ' + quest[y])
-   
-"""Choose a random dungeon for the quest"""
-
-def randomdungeongenerator(dungeon):
-    x = len(dungeon) - 1
-    y = random.randint(0,x)
-    print('Dungeon: ' + dungeon[y])
-    return y
-
-"""Choose a random quest client"""
-
-def randomclientgenerator(client):
-    x = len(client) - 1
-    y = random.randint(0,x)
-    print('Client: ' + client[y])
-      
-"""Choose a random adjevtice for the enemy"""
-
-def randomadjectivegenerator(adjectives):
-    x = len(adjectives) - 1
-    y = random.randint(0,x)
-    return y
-    
-   
-"""Choose a random enemy for the quest"""
-
-def randomenemygenerator(enemies,n):
-    x = len(enemies[n]) - 1
-    y = random.randint(0,x)
-    print('Enemy: ' + enemies[n][y])
-
-"""Choose a random enemy for an encounter"""
-def randomenemyencountergenerator(enemies,n):
-    x = len(enemies[n]) - 1
-    y = random.randint(0,x)
-    return y
-
 """Choose a random difficult area for the quest"""
 
 def randomareagenerator(area):
