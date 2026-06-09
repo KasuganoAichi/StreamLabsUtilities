@@ -103,6 +103,8 @@ area = area(f,n)
 f.seek(0)
 digimon = digimon(f,n)
 f.close()
+nuzlocke = list()
+chosen = 'DIGIMON'
 """Extra variables"""
 n = 0
 x = 1
@@ -134,15 +136,28 @@ while end != 1:
         finished = 0
     """Pick one random digimon from each area (no duplicates will show up)"""
     elif command == '2':
+        n = 0
+        for item in area:
+            while finished != 1:
+                chosen = randomdigimongenerator(digimon,n)
+                if chosen not in nuzlocke:
+                   nuzlocke.append(chosen)
+                   finished = 1
+            finished = 0
+        n = 0
+        for item in nuzlocke
+            print(area[n] + ' : ' + nuzlocke[n])
+            print('\n')
+            n = n + 1
     """Generate a random number from 1 to 6"""
     elif command == '3':
-            n = int(input("Type the number of Digivolutions available for your Digimon: "))
-            n = random.randint(1,n)
-            print('Roll result: ' + n)
-            print('\n')
+        n = int(input("Type the number of Digivolutions available for your Digimon: "))
+        n = random.randint(1,n)
+        print('Roll result: ' + n)
+        print('\n')
     else:
         print("Unidentified command, please try again.")
         print('\n')
-print("Thanks for using the Random Quest Generator")
+print("Thanks for using the Nuzlocke Assist Manager")
 print("Made by KasuganoAichi(Github Username)")
 time.sleep(10)
