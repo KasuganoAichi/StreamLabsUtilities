@@ -62,12 +62,47 @@ Dokugumon
 Drimogemon
 end
 Radio Tower (Past)
+Kapurimon
+Gazimon
+ToyAgumon
+Fanbeemon
+Otamamon
+Shoutmon
+Solarmon
+Goblimon
+Kudamon
+Kotemon
+Airdramon
+Dokugumon
+Snimon
+Centaurumon
+Waspmon
+Tyranomon
 end
 Factory Area (Past)
+Choromon
+Goblimon
+Shamamon
+Kamemon
+Tankmon
+Gargomon
+Mechanorimon
+Clockmon
 end
-Abyss Area Beach (Past)
+Abyss Area Surface (Past)
+Syakomon
+Crabmon
+Gomamon
+Coelamon
+KaratsukiNumemon
 end
 Abyss Area Underwater (Past)
+Poyomon
+Coelamon
+Seadramon
+Scorpiomon
+Dragomon
+Divermon
 end
 Gear Forest (Past)
 end
