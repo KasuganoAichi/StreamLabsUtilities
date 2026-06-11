@@ -105,6 +105,7 @@ while end != 1:
         for item in nuzlocke:
             print(area_data[n] + ' : ' + nuzlocke[n])
             n = n + 1
+        nuzlocke = list()
         print('\n')
         chosen = input("Press any key to continue...")    
     elif command == '3':
