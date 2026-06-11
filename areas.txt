@@ -105,9 +105,22 @@ Dragomon
 Divermon
 end
 Gear Forest (Past)
+Pabumon
+Muchomon
+Tentomon
 Kabuterimon
+Sunflowmon
+Unimon
+Woodmon
+Flymon
+Gekomon
+AtlurKabuterimon
 end
 Tokyo (Past)
+Goburimon
+Shamamon
+Flymon
+Okuwamon
 Dragomon
 end
 Dark Area (Zombie)
