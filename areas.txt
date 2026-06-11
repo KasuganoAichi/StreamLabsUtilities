@@ -105,24 +105,35 @@ Dragomon
 Divermon
 end
 Gear Forest (Past)
+Kabuterimon
 end
 Tokyo (Past)
+Dragomon
 end
 Dark Area (Zombie)
+Myotismon
 end
 Central Town (Present)
+Deltamon
 end
 Radio Tower (Present)
+Tyranomon
 end
 Abyss Area Beach (Present)
+Sukamon
 end
 Abyss Area Underwater (Present)
+Plesiomon
 end
 Gear Forest (Present)
+Lilamon
 end
 Temple of Light (Present)
+Unimon
 end
 Dark Area (Pluto)
+Yatagaramon
 end
 Outer Dungeons
+Andromon
 end
