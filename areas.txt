@@ -101,8 +101,6 @@ Poyomon
 Coelamon
 Seadramon
 Scorpiomon
-Dragomon
-Divermon
 end
 Gear Forest (Past)
 Pabumon
@@ -122,8 +120,12 @@ end
 Tokyo (Past)
 Goburimon
 Shamamon
+Kabuterimon
+Kurisarimon
+Kuwagamon
 Flymon
 Okuwamon
+Divermon
 Dragomon
 end
 Dark Area (Zombie)
@@ -139,6 +141,10 @@ Abyss Area Beach (Present)
 Sukamon
 end
 Abyss Area Underwater (Present)
+Gizamon
+Scorpiomon/Anamalokarimon
+Zudomon
+MegaSeadramon
 Plesiomon
 end
 Gear Forest (Present)
