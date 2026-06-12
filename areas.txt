@@ -65,7 +65,7 @@ Radio Tower (Past)
 Kapurimon
 Gazimon
 ToyAgumon
-Fanbeemon
+Funbeemon
 Otamamon
 Shoutmon
 Solarmon
@@ -106,15 +106,18 @@ Divermon
 end
 Gear Forest (Past)
 Pabumon
+Funbeemon
 Muchomon
+Floramon
 Tentomon
 Kabuterimon
 Sunflowmon
 Unimon
 Woodmon
 Flymon
-Gekomon
+Waspmon
 AtlurKabuterimon
+Deramon
 end
 Tokyo (Past)
 Goburimon
