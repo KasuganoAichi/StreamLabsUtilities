@@ -1,4 +1,4 @@
-20
+23
 Roppongi Side 1
 Botamon
 Punimon
@@ -14,7 +14,6 @@ Gazimon
 Tentomon
 Keramon
 Mushroomon
-Chaosdramon
 end
 Roppongi Side 2
 Kuramon
@@ -72,6 +71,7 @@ Solarmon
 Goblimon
 Kudamon
 Kotemon
+Dracomon
 Airdramon
 Dokugumon
 Snimon
@@ -81,81 +81,154 @@ Tyranomon
 end
 Factory Area (Past)
 Choromon
-Goblimon
+Solarmon
+Hagurumon
 Shamamon
 Kamemon
-Tankmon
 Gargomon
 Mechanorimon
 Clockmon
+Guardromon
 end
 Abyss Area Surface (Past)
 Syakomon
 Crabmon
-Gomamon
+Penmon
 Coelamon
 KaratsukiNumemon
 end
 Abyss Area Underwater (Past)
 Poyomon
-Coelamon
+Penmon
+Syakomon
+Crabmon
+Gomamon
+KaratsukiNumemon
+Octomon
 Seadramon
-Scorpiomon
+Coelamon
+Dagomon
 end
 Gear Forest (Past)
 Pabumon
-Funbeemon
 Muchomon
-Floramon
 Tentomon
+Floramon
 Kabuterimon
-Sunflowmon
 Unimon
-Woodmon
+Gekomon
 Flymon
-Waspmon
-AtlurKabuterimon
+Sunflowmon
+Woodmon
 Deramon
 end
 Tokyo (Past)
-Goburimon
+Goblimon
 Shamamon
-Kabuterimon
-Kurisarimon
 Kuwagamon
+Kabuterimon
 Flymon
 Okuwamon
 Divermon
-Dragomon
+Dagomon
 end
 Dark Area (Zombie)
-Myotismon
+Kurisarimon
+SkullGreymon
+Infermon
 end
 Central Town (Present)
+Otamamon
+Dokugumon
+Kurisarimon
 Deltamon
+DeathMeramon
+Parrotmon
+Arukenimon
 end
 Radio Tower (Present)
 Tyranomon
 end
 Abyss Area Beach (Present)
 Sukamon
+Raremon
 end
 Abyss Area Underwater (Present)
 Gizamon
-Scorpiomon/Anamalokarimon
-Zudomon
+Anomalocarimon
 MegaSeadramon
+Zudomon
 Plesiomon
 end
 Gear Forest (Present)
+Lalamon
+Muchomon
+Floramon
+Vegiemon
+Kiwimon
+Birdramon
+Gekomon
+Woodmon
+MegaKabuterimon
+Etemon
 Lilamon
+Garudamon
+Deramon
+CannonBeemon
+ShogunGekomon
+HeraklesKabuterimon
 end
 Temple of Light (Present)
 Unimon
 end
 Dark Area (Pluto)
+PicoDevimon
+Sangloupmon
+SkullGreymon
+Infermon
 Yatagaramon
+Vamdemon
+Piedmon
 end
+Cosmic Area (Heat)
+Solarmon
+Meramon
+MudFrigimon
+Volcanomon
+Meteormon
+RizeGreymon
+end
+Cosmic Area (Chill)
+Penmon
+Coredramon (Blue)
+Yukidarumon
+Mammon
+BlueMeramon
+Vikemon
+Akashic Visions
+FunBeemon
+Waspmon
+CannonBeemon
+Cerberusmon
 Outer Dungeons
+Pabumon
+Lalamon
+PlatinumScumon
+Witchmon
+Reppamon
+Ikkakumon
+Wizarmon
+Dinohumon
 Andromon
+CatchMamemon
+MetalGreymon
+Whamon
+MetalTyranomon
+Wingdramon
+MagnaGarurumon
+Orochimon
+TyrantKabuterimon
+Crossmon
+Hououmon
+Slayerdramon
 end
