@@ -6,7 +6,8 @@ def listcommands():
     print("\n")
     print("1 - Pick a Random Digimon from specified Area")
     print("2 - Pick one Random Digimon from each Area")
-    print("3 - Roll a Dice to determine Digivolution")
+    print("3 - Pick one Random Rookie Digimon from each Attribute")
+    print("4 - Roll a Dice to determine Digivolution")
     print("0 - Close the Program\n")
 
 def ler_areas(f, n):
@@ -72,7 +73,7 @@ while end != 1:
         
     elif command == '1':
         while finished != 1:
-            for item in area_data:
+            for item in area_data[:-3]:
                 print(str(x) + ' - ' + item)
                 x = x + 1
             print('\n')
@@ -93,7 +94,7 @@ while end != 1:
         
     elif command == '2':
         n = 0
-        for item in area_data:
+        for item in area_data[:-3]:
             while finished != 1:
                 chosen = randomdigimongenerator(digimon_data, n)
                 if chosen not in nuzlocke:
@@ -105,10 +106,25 @@ while end != 1:
         for item in nuzlocke:
             print(area_data[n] + ' : ' + nuzlocke[n])
             n = n + 1
+        nuzlocke.clear()
+        print('\n')
+        chosen = input("Press any key to continue...")    
+        
+    elif command == '3':
+        n = m = len(area_data) - 3
+        for item in area_data[-3:]:
+            chosen = randomdigimongenerator(digimon_data, n)
+            n = n + 1
+        n = m
+        m = 0
+        for item in nuzlocke:
+            print(area_data[n] + ' : ' + nuzlocke[m])
+            m = m + 1
         nuzlocke = list()
         print('\n')
         chosen = input("Press any key to continue...")    
-    elif command == '3':
+        
+    elif command == '4':
         n = int(input("Type the number of Digivolutions available for your Digimon: "))
         n = random.randint(1, n)
         print('Roll result: ' + str(n))
