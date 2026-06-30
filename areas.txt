@@ -1,4 +1,4 @@
-23
+26
 Roppongi Side 1
 Botamon
 Punimon
@@ -231,4 +231,72 @@ TyrantKabuterimon
 Crossmon
 Hououmon
 Slayerdramon
+end
+Vaccine Rookies
+Agumon
+Kudamon
+Gomamon
+Coronamon
+Zubamon
+Solarmon
+Terriermon
+Tentomon
+ToyAgumon
+Tapirmon
+Hyokomon
+Biyomon
+Falcomon
+Salamon
+Bearmon
+Penmon
+Monodramon
+Ryudamon
+Lucemon
+end
+Data Rookies
+Elecmon
+Gaomon
+Crabmon
+Gabumon
+Kamemon
+Kokuwamon
+Gotsumon
+Kotemon
+Shoutmon
+Dracomon
+Dorumon
+Patamon
+Huckmon
+Palmon
+Floramon
+Muchomon
+Lalamon
+Lunamon
+Renamon
+Lopmon
+end
+Virus/Free/Unkown Rookies
+Impmon
+Otamamon
+Gazimon
+Gizamon
+Guilmon
+Goblimon
+Shamamon
+Syakomon
+SnowGoblimon
+Chuumon
+Dracmon
+Hagurumon
+PicoDevimon
+FunBeemon
+Betamon
+Mushroomon
+Agumon (Black)
+Gabumon (Black)
+Vmon
+Armadimon
+Hawkmon
+Wormmon
+Keramon
 end
