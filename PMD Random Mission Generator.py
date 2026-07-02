@@ -16,7 +16,7 @@ def ler_areas(f, n):
     lista_areas.append(read)
     n = n - 1
     while n != 0:
-        while read != 'end':
+        while read != 'end' and read != '':
             read = f.readline().rstrip('\n').rstrip('\t')
         read = f.readline().rstrip('\n').rstrip('\t')
         lista_areas.append(read)
@@ -30,7 +30,7 @@ def ler_digimons(f, n):
     f.readline()
     read = f.readline().rstrip('\n').rstrip('\t')
     while n != 0:
-        while read != 'end':
+        while read != 'end' and read != '':
             auxlist.append(read)
             read = f.readline().rstrip('\n').rstrip('\t')
         lista_digimons.append(auxlist)
@@ -114,11 +114,13 @@ while end != 1:
         n = m = len(area_data) - 3
         for item in area_data[-3:]:
             chosen = randomdigimongenerator(digimon_data, n)
+            nuzlocke.append(chosen)
             n = n + 1
         n = m
         m = 0
         for item in nuzlocke:
             print(area_data[n] + ' : ' + nuzlocke[m])
+            n = n + 1
             m = m + 1
         nuzlocke = list()
         print('\n')
