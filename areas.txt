@@ -1,5 +1,5 @@
 26
-Roppongi Side 1
+Tokyo MGB: North Tower
 Botamon
 Punimon
 Kuramon
@@ -15,7 +15,7 @@ Tentomon
 Keramon
 Mushroomon
 end
-Roppongi Side 2
+Tokyo MGB: South Tower
 Kuramon
 Motimon
 Gotsumon
@@ -28,7 +28,7 @@ Mushroomon
 Impmon
 Kurisarimon
 end
-Sewers 1
+Shinjuku Underground Waterway: South Block
 Pagumon
 Nyaromon
 Bukamon
@@ -39,7 +39,7 @@ Muchomon
 Betamon
 Numemon
 end
-Sewers 2
+Shinjuku Underground Waterway: North Block
 Tsunomon
 Tokomon
 Tapirmon
@@ -50,7 +50,7 @@ Lopmon
 Dracmon
 Geremon
 end
-Central Town (Past)
+Central Town: Spiral Waterway (Past)
 Dorimon
 Gazimon
 Keramon
@@ -79,7 +79,7 @@ Centaurumon
 Waspmon
 Tyranomon
 end
-Factory Area (Past)
+"Factorial Area (Past)
 Choromon
 Solarmon
 Hagurumon
@@ -90,14 +90,14 @@ Mechanorimon
 Clockmon
 Guardromon
 end
-Abyss Area Surface (Past)
+Abyss Surface (Past)
 Syakomon
 Crabmon
 Penmon
 Coelamon
 KaratsukiNumemon
 end
-Abyss Area Underwater (Past)
+Abyss Depths (Past)
 Poyomon
 Penmon
 Syakomon
@@ -132,12 +132,12 @@ Okuwamon
 Divermon
 Dagomon
 end
-Dark Area (Zombie)
+Dark Crevasse (First Visit)
 Kurisarimon
 SkullGreymon
 Infermon
 end
-Central Town (Present)
+Central Town: Spiral Waterway (Present)
 Otamamon
 Dokugumon
 Kurisarimon
@@ -149,11 +149,11 @@ end
 Radio Tower (Present)
 Tyranomon
 end
-Abyss Area Beach (Present)
+Abyss Surface (Present)
 Sukamon
 Raremon
 end
-Abyss Area Underwater (Present)
+Abyss Sanctuary (Present)
 Gizamon
 Anomalocarimon
 MegaSeadramon
@@ -180,8 +180,9 @@ HeraklesKabuterimon
 end
 Temple of Light (Present)
 Unimon
+Wisemon
 end
-Dark Area (Pluto)
+Dark Crevasse (Present)
 PicoDevimon
 Sangloupmon
 SkullGreymon
@@ -190,7 +191,7 @@ Yatagaramon
 Vamdemon
 Piedmon
 end
-Cosmic Area (Heat)
+Cosmic Area: Heat
 Solarmon
 Meramon
 MudFrigimon
@@ -198,7 +199,7 @@ Volcanomon
 Meteormon
 RizeGreymon
 end
-Cosmic Area (Chill)
+Cosmic Area: Chill
 Penmon
 Coredramon (Blue)
 Yukidarumon
