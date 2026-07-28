@@ -11,3 +11,4 @@ which allows for usage of a single page to randomize the digimon, update the dea
 The "Nuzlocke Assistant.html" only features the randomizer, with no interface nor slot for the digimon portraits;
 
 NOTE: I have yet to find the portrait for the newly added Terriermon (Assistant) as such, the current img is a placeholder for the time being.
+NOTE2: I ran out of patience for the day to mess with the html code and fix the comments, as well as the color scheme, I will be working on that in the near future
