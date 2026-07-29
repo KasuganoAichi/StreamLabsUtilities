@@ -15,7 +15,7 @@
             color: #ffffff;
         }
 
-        /* --- OVERLAY DE SLOTS & CONTADORES --- */
+        /* --- OVERLAY DE SLOTS & COUNTERS --- */
         .layout-container {
             display: grid;
             grid-template-columns: 130px 130px 256px; 
@@ -25,7 +25,7 @@
             width: fit-content;
         }
 
-        .bloco-slots {
+        .block-slots {
             display: grid;
             grid-template-columns: 130px 130px;
             grid-column: 1 / 3;
@@ -36,7 +36,6 @@
         .slot {
             width: 130px;
             height: 130px;
-            /*border: 1px solid #000000; */
             background-color: transparent; 
             box-sizing: border-box;
             position: relative; 
@@ -46,7 +45,7 @@
         }
 
         .slot::before {
-            content: attr(data-numero);
+            content: attr(data-number);
             position: absolute;
             top: 5px;
             left: 5px;
@@ -57,7 +56,7 @@
             z-index: 2;
         }
 
-        .slot-texto {
+        .slot-text {
             position: absolute;
             bottom: 5px; 
             left: 50%;
@@ -69,7 +68,7 @@
             box-sizing: border-box;
             z-index: 2;
             
-            /* Configurações do texto do Apelido */
+            /* Config for the Nicknames text */
             font-size: 15px;
             line-height: 30px;
             text-align: center;
@@ -79,7 +78,7 @@
             font-weight: bold;
         }
 
-        .contador-mortes {
+        .deaths-counter {
             grid-column: 3;
             width: 256px;
             height: 201px;
@@ -95,14 +94,14 @@
             position: relative;
         }
 
-        .contador-titulo {
+        .counter-title {
             font-size: 26px;
             font-weight: bold;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px #000;
         }
 
-        .contador-numero {
+        .counter-number {
             font-size: 54px;
             font-weight: bold;
             text-shadow: 2px 2px 4px #000;
@@ -123,7 +122,7 @@
             border-color: #ff3333;
         }
 
-        /* --- PAINEL ASSISTENTE NUZLOCKE (300px ABAIXO) --- */
+        /* --- ASSISTANT PANEL, PLACED 300px BELOW THE OVERLAY --- */
         .assistant-container {
             margin-top: 300px;
             margin-left: 20px;
@@ -186,10 +185,10 @@
             margin-top: 10px;
             padding: 8px;
             background-color: #0f172a;
-            border-left: 4px solid #10b981;
+            border-left: 4px solid #05744f;
             font-weight: bold;
             font-size: 14px;
-            color: #34d399;
+            color: #05744f;
             min-height: 20px;
             max-height: 200px;
             overflow-y: auto;
@@ -197,50 +196,51 @@
         }
     </style>
 </head>
+
 <body>
 
-    <!-- BLOCO SUPERIOR (OVERLAY DA STREAM) -->
+    <!-- UPPER BLOCK (STREAM OVERLAY) -->
     <div class="layout-container">
         
-        <!-- TIME 1 -->
-        <div class="bloco-slots">
-            <div class="slot" data-numero="1"><div class="slot-texto"></div></div>
-            <div class="slot" data-numero="4"><div class="slot-texto"></div></div>
-            <div class="slot" data-numero="2"><div class="slot-texto"></div></div>
-            <div class="slot" data-numero="5"><div class="slot-texto"></div></div>
-            <div class="slot" data-numero="3"><div class="slot-texto"></div></div>
-            <div class="slot" data-numero="6"><div class="slot-texto"></div></div>
+        <!-- TEAM 1 -->
+        <div class="block-slots">
+            <div class="slot" data-number="1"><div class="slot-text"></div></div>
+            <div class="slot" data-number="4"><div class="slot-text"></div></div>
+            <div class="slot" data-number="2"><div class="slot-text"></div></div>
+            <div class="slot" data-number="5"><div class="slot-text"></div></div>
+            <div class="slot" data-number="3"><div class="slot-text"></div></div>
+            <div class="slot" data-number="6"><div class="slot-text"></div></div>
         </div>
 
-        <div class="contador-mortes" id="mortesBloco1" onclick="alterarMortes('mortesBloco1', 1)" oncontextmenu="alterarMortes('mortesBloco1', -1); return false;">
-            <span class="btn-reset" onclick="event.stopPropagation(); zerarContador('mortesBloco1');">Zerar</span>
-            <div class="contador-titulo">Mortes:</div>
-            <div class="contador-numero" id="val-mortesBloco1">0</div>
+        <div class="deaths-counter" id="deathsBlock1" onclick="updatedeaths('deathsBlock1', 1)" oncontextmenu="updatedeaths('deathsBlock1', -1); return false;">
+            <span class="btn-reset" onclick="event.stopPropagation(); resetDeathCounter('deathsBlock1');">Reset</span>
+            <div class="counter-title">Deaths:</div>
+            <div class="counter-number" id="val-deathsBlock1">0</div>
         </div>
 
-        <!-- TIME 2 -->
-        <div class="bloco-slots">
-            <div class="slot" data-numero="1"><div class="slot-texto"></div></div>
-            <div class="slot" data-numero="4"><div class="slot-texto"></div></div>
-            <div class="slot" data-numero="2"><div class="slot-texto"></div></div>
-            <div class="slot" data-numero="5"><div class="slot-texto"></div></div>
-            <div class="slot" data-numero="3"><div class="slot-texto"></div></div>
-            <div class="slot" data-numero="6"><div class="slot-texto"></div></div>
+        <!-- TEAM 2 -->
+        <div class="block-slots">
+            <div class="slot" data-number="1"><div class="slot-text"></div></div>
+            <div class="slot" data-number="4"><div class="slot-text"></div></div>
+            <div class="slot" data-number="2"><div class="slot-text"></div></div>
+            <div class="slot" data-number="5"><div class="slot-text"></div></div>
+            <div class="slot" data-number="3"><div class="slot-text"></div></div>
+            <div class="slot" data-number="6"><div class="slot-text"></div></div>
         </div>
 
-        <div class="contador-mortes" id="mortesBloco2" onclick="alterarMortes('mortesBloco2', 1)" oncontextmenu="alterarMortes('mortesBloco2', -1); return false;">
-            <span class="btn-reset" onclick="event.stopPropagation(); zerarContador('mortesBloco2');">Zerar</span>
-            <div class="contador-titulo">Mortes:</div>
-            <div class="contador-numero" id="val-mortesBloco2">0</div>
+        <div class="deaths-counter" id="deathsBlock2" onclick="updatedeaths('deathsBlock2', 1)" oncontextmenu="updatedeaths('deathsBlock2', -1); return false;">
+            <span class="btn-reset" onclick="event.stopPropagation(); resetDeathCounter('deathsBlock2');">Reset</span>
+            <div class="counter-title">Deaths:</div>
+            <div class="counter-number" id="val-deathsBlock2">0</div>
         </div>
 
     </div>
 
-    <!-- BLOCO INFERIOR (ASSISTENTE NUZLOCKE - 300px ABAIXO) -->
+    <!-- LOWER BLOCK (NUZLOCKE ASSISTANT, STARTS 300px BELOW UPPER BLOCK) -->
     <div class="assistant-container">
         <div class="assistant-title">Digimon Nuzlocke Assistant</div>
 
-        <!-- Opção 1: Pick from Specified Area -->
+        <!-- Option 1: Choose a Digimon from a designated area -->
         <div class="assistant-section">
             <h4>1 - Roll a digimon from ONE Area</h4>
             <select id="selectArea" style="width: 70%;"></select>
@@ -248,32 +248,36 @@
             <div class="result-box" id="resArea">...</div>
         </div>
 
-        <!-- Opção 2: Pick from ALL Areas -->
+        <!-- Option 2: Pick one Digimon from EACH area with no dups -->
         <div class="assistant-section">
             <h4>2 - Pick 1 Digimon from EACH Area</h4>
-            <button onclick="rollAllAreas()">Roll All Areas</button>
+            <button onclick="rollAllAreas()">Roll</button>
             <div class="result-box" id="resAllAreas">...</div>
         </div>
 
-        <!-- Opção 3: Pick Rookie by Attribute -->
+        <!-- Option 3: Pick a set of Rookies -->
         <div class="assistant-section">
             <h4>3 - Randomize Starter Digimon Options</h4>
-            <button onclick="rollRookies()">Roll Rookies</button>
+            <button onclick="rollRookies()">Roll</button>
             <div class="result-box" id="resRookies">...</div>
         </div>
 
-        <!-- Opção 4: Dice Roll -->
+        <!-- Option 4: Dice Roll -->
         <div class="assistant-section">
             <h4>4 - Roll Digivolution Dice</h4>
             <input type="number" id="diceMax" value="2" min="1" style="width: 60px;">
-            <button onclick="rollDice()">Roll Dice</button>
+            <button onclick="rollDice()">Roll</button>
             <div class="result-box" id="resDice">...</div>
         </div>
     </div>
 
     <script>
         // ====================================================================
-        // DADOS DO TXT (Áreas e Digimons)
+        // AREAS AND DIGIMONS 
+        // You can add your own named areas or list inside this const
+        // However, if the list grows to big it may not work anymore since it is using your machines RAM
+        // (NOTE: Those aren't all the named areas in game/load zones, but the ones
+        // I designed to make for a smaller overall amount of Digimon to be obtained)
         // ====================================================================
         const areasData = [
             { name: "Tokyo Metropolitan Goverment Building: North Tower", digimons: ["Botamon","Punimon","Kuramon","Wanyamon","Kotemon","Gotsumon","Dracomon","ToyAgumon","Monodramon","Impmon","Gazimon","Tentomon","Keramon","Mushroomon"] },
@@ -301,13 +305,15 @@
             { name: "Outer Dungeons", digimons: ["Pabumon","Lalamon","PlatinumScumon","Witchmon","Reppamon","Ikkakumon","Wizarmon","Dinohumon","Andromon","CatchMamemon","MetalGreymon","Whamon","MetalTyranomon","Wingdramon","MagnaGarurumon","Orochimon","TyrantKabuterimon","Crossmon","Hououmon","Slayerdramon"] }
         ];
 
+        // List of the Rookie Digimon in-game by Attribute
+        // (NOTE: Terriermon Assistant is not a part of the list because the game treats it as a Mode Change from Terriermon)
         const rookiesData = [
             { attribute: "Vaccine", digimons: ["Agumon","Kudamon","Gomamon","Coronamon","Zubamon","Solarmon","Terriermon","Tentomon","ToyAgumon","Tapirmon","Hyokomon","Biyomon","Falcomon","Salamon","Bearmon","Penmon","Monodramon","Ryudamon","Lucemon"] },
             { attribute: "Data", digimons: ["Elecmon","Gaomon","Crabmon","Gabumon","Kamemon","Kokuwamon","Gotsumon","Kotemon","Shoutmon","Dracomon","Dorumon","Patamon","Huckmon","Palmon","Floramon","Muchomon","Lalamon","Lunamon","Renamon","Lopmon"] },
             { attribute: "Virus/Free/Unkown", digimons: ["Impmon","Otamamon","Gazimon","Gizamon","Guilmon","Goblimon","Shamamon","Syakomon","SnowGoblimon","Chuumon","Dracmon","Hagurumon","PicoDevimon","FunBeemon","Betamon","Mushroomon","Agumon (Black)","Gabumon (Black)","Vmon","Armadimon","Hawkmon","Wormmon","Keramon"] }
         ];
 
-        // Populando Select de Áreas
+        // Create DOM for selectArea
         const selectElem = document.getElementById('selectArea');
         areasData.forEach((area, index) => {
             let opt = document.createElement('option');
@@ -316,12 +322,12 @@
             selectElem.appendChild(opt);
         });
 
-        // Função de Sorteio Genérica
+        // Random Function
         function getRandomItem(arr) {
             return arr[Math.floor(Math.random() * arr.length)];
         }
 
-        // --- 1. Sorteio de Área Única ---
+        // Choose random Digimon from choosen area
         function rollSingleArea() {
             let idx = selectElem.value;
             let area = areasData[idx];
@@ -329,7 +335,7 @@
             document.getElementById('resArea').innerText = `${picked}`;
         }
 
-        // --- 2. Sorteio de Todas as Áreas (Sem Repetição) ---
+        // Choose one random digimon from each area without duplicates
         function rollAllAreas() {
             let resultText = "";
             let drawnDigimons = [];
@@ -344,7 +350,7 @@
             document.getElementById('resAllAreas').innerText = resultText;
         }
 
-        // --- 3. Sorteio por Atributo ---
+        // Randomize the three starter options (NOTE: You will need to use a mod in order to change this for your game)
         function rollRookies() {
             let resultText = "";
             rookiesData.forEach(group => {
@@ -354,7 +360,7 @@
             document.getElementById('resRookies').innerText = resultText;
         }
 
-        // --- 4. Rolagem de Dado ---
+        // Roll a Dice (I could not be bothered to create a huge database with all the digivolution of each Digimon, a dice is enough)
         function rollDice() {
             let max = parseInt(document.getElementById('diceMax').value) || 1;
             let roll = Math.floor(Math.random() * max) + 1;
@@ -362,9 +368,43 @@
         }
 
         // ====================================================================
-        // OVERLAY SLOTS & TIMES
+        // OVERLAY SLOTS & TEAMS
         // ====================================================================
-        const dicionarioDigimon = {
+        
+        
+        // Type the names and nicknames of the Digimon in this const,
+        // They are placed in order from slot 1 to 6, the first 6 are for Team 1
+        // and the others for Team 2
+        const myTeam = [
+            { name: "Veemon", nickname: "Blue" }, { name: "Wormmon", nickname: "Buggin" },
+            { name: "Hawkmon", nickname: "Birdou" }, { name: "Tailmon", nickname: "Milo" },
+            { name: "Armadillomon", nickname: "Digger" }, { name: "Patamon", nickname: "Pixie" },
+            { name: "Guilmon", nickname: "Rex" }, { name: "Renamon", nickname: "Miko" },
+            { name: "Terriermon", nickname: "Beast" }, { name: "Lopmon", nickname: "DarkBeast" },
+            { name: "Impmon", nickname: "Killer" }, { name: "Leomon", nickname: "Victim" }                  
+        ];
+
+        // This is not working properly with OBS due to OBS restrictions
+        // Might be removed in future updates due to that
+        // That said, if the page is hosted then it works with OBS, it just doesn't work as a local file
+        const deaths = {
+            deathsBlock1: parseInt(localStorage.getItem('deathsBlock1')) || 0,
+            deathsBlock2: parseInt(localStorage.getItem('deathsBlock2')) || 0
+        };
+
+
+        // I'm using Skullbot API since they have all the Digimon from the base game.
+        // However the API uses IDs and not names for the Digimons webp images,
+        // thus I've prepared this massive list of Digimon and pointers to their IDs;
+        // it also includes codes for the DLC digimon, which are not present in the API;
+        // their portraits is acquired from local files in a dir called "portraits";
+        // keep this file and the dir on the same folder for this to work;
+        // also some Digimon such as Tailmon are using their original JP names
+        // their EN name is commented right at their side, you can search for that
+        // please refer to the list for more information
+        // And please note, only the name on the list will work
+        // actual code continues on line 886
+        const digimonIdList = {
             "botamon": "1317",
             "choromon": "1241",
             "dodomon": "1316",
@@ -394,7 +434,6 @@
             "chuumon": "1020",
             "coronamon": "1136",
             "crabmon": "1103",
-            "demidevimon": "1097",
             "dorumon": "1112",
             "dracmon": "1457",
             "dracomon": "1208",
@@ -432,9 +471,10 @@
             "palmon": "1348",
             "patamon": "1096",
             "penmon": "1622",
+            "picodevimon": "1097", //demidevimon
+            "plotmon": "1361", //salamon
             "renamon": "1391",
             "ryudamon": "1190",
-            "salamon": "1361",
             "shamamon": "1577",
             "shoutmon": "1682",
             "snowgoblimon": "1578",
@@ -455,7 +495,7 @@
             "bakemon": "1013",
             "baohuckmon": "1115",
             "birdramon": "1308",
-            "blacktailmon": "1043",
+            "blacktailmon": "1043", //blackgatomon
             "blimpmon": "1463",
             "buraimon": "1574",
             "centarumon": "1372",
@@ -481,7 +521,6 @@
             "gargomon": "1710",
             "garurumon": "1012",
             "garurumon (black)": "1714",
-            "tailmon": "1092",
             "gawappamon": "1051",
             "gekomon": "1399",
             "geogreymon": "1054",
@@ -500,6 +539,7 @@
             "icemon": "1758",
             "ikkakumon": "1344",
             "kabuterimon": "1304",
+            "karatsukinumemon": "1455", //shellnumemon
             "kiwimon": "1610",
             "kurisarimon": "1630",
             "kuwagamon": "1367",
@@ -525,7 +565,6 @@
             "sangloupmon": "1030",
             "seadramon": "1347",
             "shellmon": "1368",
-            "karatsukinumemon": "1455",
             "snimon": "1597",
             "sorcermon": "1755",
             "starmon": "1014",
@@ -533,6 +572,7 @@
             "strikedramon": "1016",
             "sukamon": "1313",
             "sunflowmon": "1058",
+            "tailmon": "1092",
             "tankmon": "1621",
             "togemon": "1349",
             "turuiemon": "1102",
@@ -555,6 +595,7 @@
             "aeroveedramon": "1400",
             "andromon": "1342",
             "angewomon": "1148",
+            "anomalakarimon": "1605", //scorpiomon
             "antylamon": "1731",
             "arukenimon": "1199",
             "astamon": "1237",
@@ -570,16 +611,16 @@
             "cherrymon": "1379",
             "chirinmon": "1084",
             "crescemon": "1004",
-            "yatagaramon": "1721",
             "cyberdramon": "1719",
+            "dagomon": "1129", //dragomon
             "darksuperstarmon": "1217",
             "datamon": "1576",
+            "deathmeramon": "1406", //skullMeramon
             "deramon": "1378",
             "digitamamon": "1374",
             "dinobeemon": "1023",
             "divermon": "1606",
             "dorugreymon": "1407",
-            "dragomon": "1129",
             "duramon": "1699",
             "enbarrmon": "1920",
             "etemon": "1311",
@@ -594,7 +635,7 @@
             "groundramon": "1211",
             "hippogryphomon": "1082",
             "hisyaryumon": "1192",
-            "panjyamon": "1409",
+            "holyangemon": "1101", //magnaAngemon
             "infermon": "1627",
             "jewelbeemon": "1484",
             "kimeramon": "1229",
@@ -606,7 +647,6 @@
             "locomon": "1198",
             "lucemon cm": "1039",
             "machgaogamon": "1074",
-            "holyangemon": "1101",
             "mamemon": "1412",
             "mammothmon": "1588",
             "masterblimpmon": "1465",
@@ -628,6 +668,7 @@
             "orochimon": "1149",
             "paildramon": "1408",
             "pandamon": "1041",
+            "panjyamon": "1409", //iceleomon
             "parrotmon": "1414",
             "phantomon": "1584",
             "piximon": "1410",
@@ -635,7 +676,6 @@
             "rapidmon": "1722",
             "rizegreymon": "1071",
             "saviorhuckmon": "1116",
-            "anomalakarimon": "1605",
             "shakkoumon": "1723",
             "sharkmon": "1907",
             "shaujinmon": "1076",
@@ -644,7 +684,6 @@
             "sirenmon": "1232",
             "skullbaluchimon": "1239",
             "skullgreymon": "1404",
-            "deathmeramon": "1406",
             "skullsatamon": "1006",
             "skullseadramon": "1908",
             "superstarmon": "1079",
@@ -660,6 +699,7 @@
             "whamon": "1021",
             "wingdramon": "1210",
             "wisemon": "1726",
+            "yatagaramon": "1721", //crowmon
             "zudomon": "1345",
             "alphamon": "1416",
             "ancientwisemon": "1338",
@@ -670,7 +710,7 @@
             "bancholeomon": "1049",
             "barbamon": "1036",
             "beelstarmon": "1195",
-            "beelzebumon": "1035",
+            "beelzebumon": "1035", //beelzemon
             "belphemon sm": "1439",
             "blackwargreymon": "1175",
             "boltmon": "1431",
@@ -679,26 +719,27 @@
             "ceresmon": "1176",
             "ceresmon medium": "1189",
             "chaosdramon": "1422",
-            "chaosdukemon": "1150",
-            "kerpymon (vice)": "1774",
-            "kerpymon (virtue)": "1735",
+            "chaosdukemon": "1150", //chaosgallantmon
             "chronomon dm": "1046",
             "chronomon hm": "1045",
             "clavisangemon": "1613",
             "craniamon": "1734",
             "creepymon": "1038",
+            "crusardermon": "1703", //lordKnightmon
             "darkdramon": "1771",
             "diaboromon": "1632",
             "dianamon": "1733",
+            "dukemon": "1126", //gallantmon
             "dorugoramon": "1019",
+            "duftmon": "1739", //leopardmon
+            "duftmon lm": "1743", //lepoardmon lm
             "durandamon": "1700",
             "dynasmon": "1738",
             "eaglemon": "1197",
             "ebemon": "1451",
             "gaiomon": "1744",
-            "dukemon": "1126",
             "gankoomon": "1688",
-            "goddramon": "1048",
+            "goddramon": "1048", //goldramon
             "grandracmon": "1032",
             "grankuwagamon": "1423",
             "groundlocomon": "1704",
@@ -706,6 +747,7 @@
             "gundramon": "1194",
             "herakleskabuterimon": "1306",
             "hiandromon": "1426",
+            "holydramon": "1453", //magnadramon
             "imperialdramon dm": "1732",
             "imperialdramon fm": "1419",
             "jesmon": "1749",
@@ -714,26 +756,22 @@
             "junomon hm": "1171",
             "jupitermon": "1168",
             "justimon": "1737",
-            "sleipmon": "1086",
+            "kerpymon (vice)": "1774", //cherubimon (vice)
+            "kerpymon (virtue)": "1735", //cherubimon (virtue)
             "kingetemon": "1127",
             "kuzuhamon": "1754",
-            "duftmon": "1739",
-            "duftmon lm": "1743",
             "leviamon": "1037",
             "lilithmon": "1034",
-            "crusardermon": "1703",
             "lotosmon": "1742",
-            "mugendramon": "1385",
-            "holydramon": "1453",
             "magnakidmon": "1616",
             "malomyotismon": "1233",
             "marineangemon": "1024",
             "marsmon": "1174",
             "mastemon": "1748",
-            "medievaldukemon": "1603",
+            "medievaldukemon": "1603", //medievalgallantmon
             "megagargomon": "1741",
             "megidramon": "1047",
-            "mercurymon": "1080",
+            "mercurymon": "1080", //merukimon
             "metaletemon": "1312",
             "metalgarurumon": "1135",
             "metalgarurumon (black)": "1182",
@@ -741,6 +779,7 @@
             "millenniummon": "1230",
             "minvervamon": "1747",
             "miragegaogamon": "1095",
+            "mugendramon": "1385", //machinedramon
             "neptunemon": "1075",
             "ophanimon": "1421",
             "ouryumon": "1193",
@@ -764,6 +803,7 @@
             "skullmammothmon": "1461",
             "slashangemon": "1614",
             "slayerdramon": "1213",
+            "sleipmon": "1086", //Kentaurosmon
             "tigervespamon": "1745",
             "titamon": "1440",
             "tyrantkabuterimon": "1128",
@@ -782,22 +822,22 @@
             "alphamon: ouryuken": "1766",
             "apokarimon": "1328",
             "armageddemon": "1106",
-            "beelzebumon bm": "1775",
+            "beelzebumon bm": "1775", //beelzemon bm
             "belphemon rm": "1040",
             "chaosmon": "1772",
             "chaosmon: valdur arm": "1118",
             "cranimon + enbarrmon": "1494",
+            "dukemon cm": "1105", //gallantmon cm
             "examon": "1215",
             "gabumon (bond of friendship)": "1490",
-            "dukemon cm": "1105",
             "gracenovamon": "1604",
             "imperialdramon pm": "1420",
             "jupitermon wm": "1169",
             "lucemon sm": "1435",
             "mervamon": "1181",
             "miragegogamon bm": "1777",
-            "omegamon": "1088",
-            "omegamon zwart": "1757",
+            "omegamon": "1088", //omnimon
+            "omegamon zwart": "1757", //omnimon zwart
             "ravemon bm": "1778",
             "rosemon bm": "1779",
             "shinegreymon bm": "1776",
@@ -815,92 +855,76 @@
             "rapidmon (armor)": "1751",
             "agunimon": "1676",
             "lanamon": "1162",
-            "lobomon": "1680",
+            "lobomon": "1680", //wolfmon
             "burningreymon": "1679",
             "calmaramon": "1163",
             "kendogarurumon": "1681",
             "aldamon": "1669",
             "beowolfmon": "1670",
-            "empeorgreymon": "1677",
+            "emperorgreymon": "1677",
             "magnagarurumon": "1678",
             "magnagarurumon (detached)": "1675",
             "cresgarurumon": "1950",
             "parallelmon": "1951",
             "blitzgreymon": "1952",
-            "omegamon alter-b": "1953",
-            "omegamon alter-s": "1954",
-            "omegamon zwart defeat": "1955",
+            "omegamon alter-b": "1953", //omnimon alter-b
+            "omegamon alter-s": "1954", //omnimon alter-s
+            "omegamon zwart defeat": "1955", //omnimon zwart defeat
             "banchomamemon": "1956",
             "bancholillymon": "1957",
             "banchogolemon": "1958",
             "banchostingmon": "1959",
-            "omegamon mm": "1960",
+            "omegamon mm": "1960", //omnimon mm
             "ulforceveedramon x": "1961",
             "magnamon x": "1962",
             "jesmon x": "1963",
-            "dukemon x": "1964",
-            "omegamon x": "1965",
+            "dukemon x": "1964", //gallantmon X
+            "omegamon x": "1965", //omnimon X
             "terriermon (assistant)": "1966"
-             // Exemplo fictício de ID
-            // Adicione novos Digimons aqui conforme eles forem aparecendo no Nuzlocke
         };
 
-        const meuTime = [
-            { nome: "Agumon", apelido: "Faísca" }, { nome: "Gabumon", apelido: "Fubá" },
-            { nome: "Patamon", apelido: "Pipoca" }, { nome: "", apelido: "" },
-            { nome: "", apelido: "" }, { nome: "", apelido: "" },
-            { nome: "terriermon (assistant)", apelido: "Dino" }, { nome: "", apelido: "" },
-            { nome: "", apelido: "" }, { nome: "", apelido: "" },
-            { nome: "", apelido: "" }, { nome: "", apelido: "" }                  
-        ];
-
-        const mortes = {
-            mortesBloco1: parseInt(localStorage.getItem('mortesBloco1')) || 0,
-            mortesBloco2: parseInt(localStorage.getItem('mortesBloco2')) || 0
-        };
-
-        function atualizarTelaMortes() {
-            document.getElementById('val-mortesBloco1').textContent = mortes.mortesBloco1;
-            document.getElementById('val-mortesBloco2').textContent = mortes.mortesBloco2;
+        function updateDeathScreen() {
+            document.getElementById('val-deathsBlock1').textContent = deaths.deathsBlock1;
+            document.getElementById('val-deathsBlock2').textContent = deaths.deathsBlock2;
         }
 
-        function alterarMortes(idContador, valor) {
-            mortes[idContador] = Math.max(0, mortes[idContador] + valor);
-            localStorage.setItem(idContador, mortes[idContador]);
-            document.getElementById(`val-${idContador}`).textContent = mortes[idContador];
+        function updatedeaths(idDeathCounter, value) {
+            deaths[idDeathCounter] = Math.max(0, deaths[idDeathCounter] + value);
+            localStorage.setItem(idDeathCounter, deaths[idDeathCounter]);
+            document.getElementById(`val-${idDeathCounter}`).textContent = deaths[idDeathCounter];
         }
 
-        function zerarContador(idContador) {
-            if (confirm("Deseja zerar este contador de mortes?")) {
-                mortes[idContador] = 0;
-                localStorage.setItem(idContador, 0);
-                document.getElementById(`val-${idContador}`).textContent = 0;
+        function resetDeathCounter(idDeathCounter) {
+            if (confirm("Do you want to reset this Counter?")) {
+                deaths[idDeathCounter] = 0;
+                localStorage.setItem(idDeathCounter, 0);
+                document.getElementById(`val-${idDeathCounter}`).textContent = 0;
             }
         }
 
-        function carregarTime() {
+        function loadTeam() {
             const slots = document.querySelectorAll('.slot');
             for (let i = 0; i < slots.length; i++) {
-                const digimonConfig = meuTime[i];
-                const labelTexto = slots[i].querySelector('.slot-texto');
-                labelTexto.textContent = digimonConfig.apelido || "";
+                const digimonConfig = myTeam[i];
+                const labelText = slots[i].querySelector('.slot-text');
+                labelText.textContent = digimonConfig.nickname || "";
 
-                if (!digimonConfig.nome || digimonConfig.nome.trim() === "") {
+                if (!digimonConfig.name || digimonConfig.name.trim() === "") {
                     slots[i].style.backgroundImage = "none";
                     continue;
                 }
 
-                const nomeBusca = digimonConfig.nome.trim().toLowerCase();
-                const idCorrespondente = dicionarioDigimon[nomeBusca];
+                const searchName = digimonConfig.name.trim().toLowerCase();
+                const idDigimon = digimonIdList[searchName];
 
                 
-                if (idCorrespondente) {
+                if (idDigimon) {
                     
 
-                    if (idCorrespondente >= 1950 && idCorrespondente <= 1966) {
-                        urlImagem = `portraits/ui_chara_icon_${idCorrespondente}.png`;
+                    if (idDigimon >= 1950 && idDigimon <= 1966) {
+                        urlImagem = `portraits/ui_chara_icon_${idDigimon}.png`;
                     } else {
-                        urlImagem = `https://api.skullbot.fr/digimon_ts/portraits/ui_chara_icon_${idCorrespondente}.webp`;
+                        urlImagem = `https://api.skullbot.fr/digimon_ts/portraits/ui_chara_icon_${idDigimon}.webp`;
                     }
 
                     slots[i].style.backgroundImage = `url('${urlImagem}')`;
@@ -910,8 +934,8 @@
             }
         }
 
-        atualizarTelaMortes();
-        carregarTime();
+        updateDeathScreen();
+        loadTeam();
     </script>
 </body>
 </html>
