@@ -15,17 +15,6 @@
             color: #ffffff;
         }
 
-        /* --- OVERLAY DE SLOTS & CONTADORES --- */
-        .layout-container {
-            display: grid;
-            grid-template-columns: 130px 130px 256px; 
-            column-gap: 22px;                                         
-            row-gap: 34px;                                            
-            padding: 20px;
-            width: fit-content;
-        }
-
-        /* --- PAINEL ASSISTENTE NUZLOCKE (300px ABAIXO) --- */
         .assistant-container {
             margin-top: 20px;
             margin-left: 600px;
@@ -88,10 +77,10 @@
             margin-top: 10px;
             padding: 8px;
             background-color: #0f172a;
-            border-left: 4px solid #10b981;
+            border-left: 4px solid #05744f;
             font-weight: bold;
             font-size: 14px;
-            color: #34d399;
+            color: #05744f;
             min-height: 20px;
             max-height: 200px;
             overflow-y: auto;
@@ -99,12 +88,12 @@
         }
     </style>
 </head>
+
 <body>
-    <!-- BLOCO INFERIOR (ASSISTENTE NUZLOCKE - 300px ABAIXO) -->
     <div class="assistant-container">
         <div class="assistant-title">Digimon Nuzlocke Assistant</div>
 
-        <!-- Opção 1: Pick from Specified Area -->
+        <!-- Option 1: Choose a Digimon from a designated area -->
         <div class="assistant-section">
             <h4>1 - Roll a digimon from ONE Area</h4>
             <select id="selectArea" style="width: 70%;"></select>
@@ -112,32 +101,36 @@
             <div class="result-box" id="resArea">...</div>
         </div>
 
-        <!-- Opção 2: Pick from ALL Areas -->
+        <!-- Option 2: Pick one Digimon from EACH area with no dups -->
         <div class="assistant-section">
             <h4>2 - Pick 1 Digimon from EACH Area</h4>
-            <button onclick="rollAllAreas()">Roll All Areas</button>
+            <button onclick="rollAllAreas()">Roll</button>
             <div class="result-box" id="resAllAreas">...</div>
         </div>
 
-        <!-- Opção 3: Pick Rookie by Attribute -->
+        <!-- Option 3: Pick a set of Rookies -->
         <div class="assistant-section">
             <h4>3 - Randomize Starter Digimon Options</h4>
-            <button onclick="rollRookies()">Roll Rookies</button>
+            <button onclick="rollRookies()">Roll</button>
             <div class="result-box" id="resRookies">...</div>
         </div>
 
-        <!-- Opção 4: Dice Roll -->
+        <!-- Option 4: Dice Roll -->
         <div class="assistant-section">
             <h4>4 - Roll Digivolution Dice</h4>
             <input type="number" id="diceMax" value="2" min="1" style="width: 60px;">
-            <button onclick="rollDice()">Roll Dice</button>
+            <button onclick="rollDice()">Roll</button>
             <div class="result-box" id="resDice">...</div>
         </div>
     </div>
 
     <script>
         // ====================================================================
-        // DADOS DO TXT (Áreas e Digimons)
+        // AREAS AND DIGIMONS 
+        // You can add your own named areas or list inside this const
+        // However, if the list grows to big it may not work anymore since it is using your machines RAM
+        // (NOTE: Those aren't all the named areas in game/load zones, but the ones
+        // I designed to make for a smaller overall amount of Digimon to be obtained)
         // ====================================================================
         const areasData = [
             { name: "Tokyo Metropolitan Goverment Building: North Tower", digimons: ["Botamon","Punimon","Kuramon","Wanyamon","Kotemon","Gotsumon","Dracomon","ToyAgumon","Monodramon","Impmon","Gazimon","Tentomon","Keramon","Mushroomon"] },
@@ -165,13 +158,15 @@
             { name: "Outer Dungeons", digimons: ["Pabumon","Lalamon","PlatinumScumon","Witchmon","Reppamon","Ikkakumon","Wizarmon","Dinohumon","Andromon","CatchMamemon","MetalGreymon","Whamon","MetalTyranomon","Wingdramon","MagnaGarurumon","Orochimon","TyrantKabuterimon","Crossmon","Hououmon","Slayerdramon"] }
         ];
 
+        // List of the Rookie Digimon in-game by Attribute
+        // (NOTE: Terriermon Assistant is not a part of the list because the game treats it as a Mode Change from Terriermon)
         const rookiesData = [
             { attribute: "Vaccine", digimons: ["Agumon","Kudamon","Gomamon","Coronamon","Zubamon","Solarmon","Terriermon","Tentomon","ToyAgumon","Tapirmon","Hyokomon","Biyomon","Falcomon","Salamon","Bearmon","Penmon","Monodramon","Ryudamon","Lucemon"] },
             { attribute: "Data", digimons: ["Elecmon","Gaomon","Crabmon","Gabumon","Kamemon","Kokuwamon","Gotsumon","Kotemon","Shoutmon","Dracomon","Dorumon","Patamon","Huckmon","Palmon","Floramon","Muchomon","Lalamon","Lunamon","Renamon","Lopmon"] },
             { attribute: "Virus/Free/Unkown", digimons: ["Impmon","Otamamon","Gazimon","Gizamon","Guilmon","Goblimon","Shamamon","Syakomon","SnowGoblimon","Chuumon","Dracmon","Hagurumon","PicoDevimon","FunBeemon","Betamon","Mushroomon","Agumon (Black)","Gabumon (Black)","Vmon","Armadimon","Hawkmon","Wormmon","Keramon"] }
         ];
 
-        // Populando Select de Áreas
+        // Create DOM for selectArea
         const selectElem = document.getElementById('selectArea');
         areasData.forEach((area, index) => {
             let opt = document.createElement('option');
@@ -180,12 +175,12 @@
             selectElem.appendChild(opt);
         });
 
-        // Função de Sorteio Genérica
+        // Random Function
         function getRandomItem(arr) {
             return arr[Math.floor(Math.random() * arr.length)];
         }
 
-        // --- 1. Sorteio de Área Única ---
+        // Choose random Digimon from choosen area
         function rollSingleArea() {
             let idx = selectElem.value;
             let area = areasData[idx];
@@ -193,7 +188,7 @@
             document.getElementById('resArea').innerText = `${picked}`;
         }
 
-        // --- 2. Sorteio de Todas as Áreas (Sem Repetição) ---
+        // Choose one random digimon from each area without duplicates
         function rollAllAreas() {
             let resultText = "";
             let drawnDigimons = [];
@@ -208,7 +203,7 @@
             document.getElementById('resAllAreas').innerText = resultText;
         }
 
-        // --- 3. Sorteio por Atributo ---
+        // Randomize the three starter options (NOTE: You will need to use a mod in order to change this for your game)
         function rollRookies() {
             let resultText = "";
             rookiesData.forEach(group => {
@@ -218,7 +213,7 @@
             document.getElementById('resRookies').innerText = resultText;
         }
 
-        // --- 4. Rolagem de Dado ---
+        // Roll a Dice (I could not be bothered to create a huge database with all the digivolution of each Digimon, a dice is enough)
         function rollDice() {
             let max = parseInt(document.getElementById('diceMax').value) || 1;
             let roll = Math.floor(Math.random() * max) + 1;
