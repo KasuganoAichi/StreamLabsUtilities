@@ -1,4 +1,6 @@
 import random
+import tkinter as tk
+from tkinter import ttk
 
 def listcommands():
     print("Below you can see a list with the available commands,")
@@ -139,3 +141,4 @@ while end != 1:
 
 print("Thanks for using the Nuzlocke Assist Manager")
 print("Made by KasuganoAichi(Github Username)")
+
