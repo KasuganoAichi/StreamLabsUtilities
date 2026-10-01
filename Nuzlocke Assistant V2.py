@@ -11,6 +11,7 @@ from tkinter import ttk, messagebox
 
 def ler_areas(f):
     lista_areas = []
+    lista_areas.append("Select an area")
     with open(f, mode='r') as file:
         try:
             n = int(file.readline().rstrip('\n'))
@@ -53,13 +54,6 @@ def randomdigimongenerator(digimon_list, n):
     return digimon_list[n][y]
 
 # --- Classe para interface ---
-end = 0
-command = '450'
-finished = 0
-
-# f = "areas.txt"
-# area_data = ler_areas(f)
-# digimon_data = ler_digimons(f)
 class AppRandomizador(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -78,23 +72,24 @@ class AppRandomizador(tk.Tk):
         
         self.cb_areas = ttk.Combobox(self, values=area_data[:-3], state="readonly")
         self.cb_areas.grid(row=1,column=1,pady=5)
+        self.cb_areas.current(0)
         
         #Linha 2 - Randomizar uma área resultado/botão
         self.lb_res_specificarea = tk.Label(self, text="")
         self.lb_res_specificarea.grid(row=2,column=0,pady=5)
-        self.bt_specificarea = tk.Button(self, text="Roll")
+        self.bt_specificarea = tk.Button(self, text="Roll", command=self.roll_specific_area)
         self.bt_specificarea.grid(row=2,column=1,pady=5)
         
         #Linha 3 - Randomizar todas as aréas
         self.lb_allareas = tk.Label(self, text="Pick one Random Digimon from each area: ")
         self.lb_allareas.grid(row=3,column=0,pady=5, sticky="w")
-        self.bt_allareas = tk.Button(self, text="Roll")
+        self.bt_allareas = tk.Button(self, text="Roll", command=self.roll_all_areas)
         self.bt_allareas.grid(row=3,column=1,pady=5)
         
         #Linha 4 - Randomizar os iniciais
         self.lb_starters = tk.Label(self, text="Pick one Random Rookie Digimon from each Attribute: ")
         self.lb_starters.grid(row=4,column=0,pady=5, sticky="w")
-        self.bt_starters = tk.Button(self, text="Roll")
+        self.bt_starters = tk.Button(self, text="Roll", command=self.roll_starters)
         self.bt_starters.grid(row=4,column=1,pady=5)
         
         #Linha 5 - Randomizar Digievoluções
@@ -106,17 +101,62 @@ class AppRandomizador(tk.Tk):
         #Linha 6 - Randomizar Digievoluções resultado/botão
         self.lb_res_digivolution = tk.Label(self, text="")
         self.lb_res_digivolution.grid(row=6,column=0,pady=5)
-        self.bt_digivolution = tk.Button(self, text="Roll")
+        self.bt_digivolution = tk.Button(self, text="Roll", command=self.roll_digivolution)
         self.bt_digivolution.grid(row=6,column=1,pady=5)
         
         #Linha 7 - Fechar o programa
-        self.bt_close = tk.Button(self, text="Close Program")
+        self.bt_close = tk.Button(self, text="Close Program", command=self.destroy)
         self.bt_close.grid(row=7,column=0,pady=5)
         
         #Linha 8 - Créditos
         self.lb_credits = tk.Label(self, text="Made by KasuganoAichi")
         self.lb_credits.grid(row=8,column=0,pady=5)
         
+    def roll_specific_area(self):
+        area_index = self.cb_areas.current()
+        if area_index <= 0:
+            messagebox.showerror("Error", "Please select an area.")
+            return
+        random_digimon = randomdigimongenerator(digimon_data, area_index)
+        self.lb_res_specificarea.config(text=f"Roll Result: {random_digimon}")
+        self.cb_areas.current(0)
+        return
+    
+    def roll_all_areas(self):
+        n = 0
+        auxlist = []
+        while n < len(area_data) - 3:
+            random_digimon = randomdigimongenerator(digimon_data, n)
+            if random_digimon not in auxlist:
+                n += 1
+                auxlist.append(random_digimon)
+        for i in range(len(auxlist)):
+            auxlist[i] = f"{area_data[i+1]}: {auxlist[i]}\n"
+        messagebox.showinfo("Results", "".join(auxlist))
+        return
+    
+    def roll_starters(self):
+        starter_list = []
+        i = len(area_data) - 3
+        for i in range(1, 4):
+            random_digimon = randomdigimongenerator(digimon_data, i)
+            starter_list.append(random_digimon)
+            i += 1
+        messagebox.showinfo("Results", f"Vaccine: {starter_list[0]}\nData: {starter_list[1]}\nVirus/Other: {starter_list[2]}")
+        return
+            
+    
+    def roll_digivolution(self):
+        try:
+            n = int(self.entry_digivolution.get())
+            if n <= 1 or n > 6:
+                messagebox.showwarning("Warning", "Please enter a number between 2 and 6.")
+                return
+            self.lb_res_digivolution.config(text=f"Roll Result: {random.randint(1, n)}")
+            return
+        except ValueError:
+            messagebox.showerror("Error", "Please enter a valid number.")
+            return
 
 
 # --- PROGRAMA PRINCIPAL ---
