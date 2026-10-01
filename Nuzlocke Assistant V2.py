@@ -1,6 +1,6 @@
 import random
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 
 
 
@@ -9,48 +9,42 @@ from tkinter import ttk
 #a versão original ficará em um arquivo separada, como um backup de uma versão funcional
 #até que está versão esteja concluída e pronta para uso.
 
-
-
-
-def listcommands():
-    print("Below you can see a list with the available commands,")
-    print("just type the number of the desired command and press Enter to run it")
-    print("\n")
-    print("1 - Pick a Random Digimon from specified Area")
-    print("2 - Pick one Random Digimon from each Area")
-    print("3 - Pick one Random Rookie Digimon from each Attribute")
-    print("4 - Roll a Dice to determine Digivolution")
-    print("0 - Close the Program\n")
-
-def ler_areas(f, n):
+def ler_areas(f):
     lista_areas = []
-    read = f.readline().rstrip('\n').rstrip('\t')
-    lista_areas.append(read)
-    n = n - 1
-    while n != 0:
-        while read != 'end' and read != '':
-            read = f.readline().rstrip('\n').rstrip('\t')
-        read = f.readline().rstrip('\n').rstrip('\t')
+    with open(f, mode='r') as file:
+        try:
+            n = int(file.readline().rstrip('\n'))
+        except ValueError: #Caso o arquivo não esteja no formato correto, avisa o usuário e encerra o programa
+            messagebox.showerror("Erro", "O arquivo utilizado está formatado incorretamente.\nO Programa será encerrado")
+            exit()
+        read = file.readline().rstrip('\n').rstrip('\t')
         lista_areas.append(read)
         n = n - 1
+        while n != 0:
+            while read != 'end' and read != '':
+                read = file.readline().rstrip('\n').rstrip('\t')
+            read = file.readline().rstrip('\n').rstrip('\t')
+            lista_areas.append(read)
+            n = n - 1
     return lista_areas
 
-def ler_digimons(f, n):
+def ler_digimons(f):
     lista_digimons = []
     auxlist = []
-    f.readline()
-    f.readline()
-    read = f.readline().rstrip('\n').rstrip('\t')
-    while n != 0:
-        while read != 'end' and read != '':
-            auxlist.append(read)
-            read = f.readline().rstrip('\n').rstrip('\t')
-        lista_digimons.append(auxlist)
-        n = n - 1
-        if n != 0:
-            f.readline()
-            read = f.readline().rstrip('\n').rstrip('\t')
-            auxlist = []
+    with open(f, mode='r') as file:
+        n = int(file.readline().rstrip('\n').rstrip('\t')) #verificação do formato do arquivo já foi feita em lista_areas
+        file.readline().rstrip('\n').rstrip('\t') #ignora próxima linha, pois é um nome de área
+        read = file.readline().rstrip('\n').rstrip('\t')
+        while n != 0:
+            while read != 'end' and read != '':
+                auxlist.append(read)
+                read = file.readline().rstrip('\n').rstrip('\t')
+            lista_digimons.append(auxlist)
+            n = n - 1
+            if n != 0:
+                file.readline() #ignora próxima linha pois é um nome de área
+                read = file.readline().rstrip('\n').strip('\t')
+                auxlist = [] #reseta auxlist para ser usado novamente
     return lista_digimons
 
 def randomdigimongenerator(digimon_list, n):
@@ -63,12 +57,9 @@ end = 0
 command = '450'
 finished = 0
 
-f = open('areas.txt', mode='r')
-n_areas = int(f.readline().rstrip('\n'))
-area_data = ler_areas(f, n_areas)
-f.seek(0)
-digimon_data = ler_digimons(f, n_areas)
-f.close()
+# f = "areas.txt"
+# area_data = ler_areas(f)
+# digimon_data = ler_digimons(f)
 class AppRandomizador(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -129,7 +120,9 @@ class AppRandomizador(tk.Tk):
 
 
 # --- PROGRAMA PRINCIPAL ---
-
+f = "areas.txt"
+area_data = ler_areas(f)
+digimon_data = ler_digimons(f)
 randomizador = AppRandomizador()
 
 randomizador.mainloop()

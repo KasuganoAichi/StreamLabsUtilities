@@ -1,6 +1,4 @@
 import random
-import tkinter as tk
-from tkinter import ttk
 
 def listcommands():
     print("Below you can see a list with the available commands,")

@@ -79,7 +79,7 @@ Centaurumon
 Waspmon
 Tyranomon
 end
-"Factorial Area (Past)
+Factorial Area (Past)
 Choromon
 Solarmon
 Hagurumon
