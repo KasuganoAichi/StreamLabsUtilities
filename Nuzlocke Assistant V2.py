@@ -137,11 +137,12 @@ class AppRandomizador(tk.Tk):
     
     def roll_starters(self):
         starter_list = []
-        i = len(area_data) - 3
+        n = len(area_data) - 4
         for i in range(1, 4):
-            random_digimon = randomdigimongenerator(digimon_data, i)
+            random_digimon = randomdigimongenerator(digimon_data, n)
             starter_list.append(random_digimon)
-            i += 1
+
+            n += 1
         messagebox.showinfo("Results", f"Vaccine: {starter_list[0]}\nData: {starter_list[1]}\nVirus/Other: {starter_list[2]}")
         return
             
